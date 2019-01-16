@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+ </head>
+  <link rel="stylesheet" href="/static/css/login.css">
+ {% block style %}
+
+ {% endblock %}
+
+ <script src="/static/js/jquery-1.11.3.js"></script>
+
+ {% block js %}
+     <script>
+     $(function () {
+         $("#btnRegister").click(function () {
+             location.href="{% url "register" %}";
+         });
+     });
+     </script>
+ {% endblock %}
+
+ </head>
+ <body>
+	<div id="container" class="">
+<!-- 	页面分上下两部分	 -->
+		<h2>
+            {% block h2 %}
+                会员登录
+            {% endblock %}
+        </h2>
+		<div id="regist" class="">
+<!-- 		左列结构	 -->
+			<p>
+				<img src="/static/images/huiyuan.jpg" width="" height="" border="0" alt="">
+                {% block anchor %}
+                    <a href="{% url "register" %}">会员注册></a>
+                {% endblock %}
+			</p>
+<!--		右列结构	 -->
+            {% block form %}
+            <form method="post" action="/login/">
+            {% csrf_token %}
+<!-- 		第一行		 -->
+{#				<div id="" class="form-line">#}
+{#					<p>手机号</p>#}
+{#					<div id="" class="">#}
+{#						<input class="form-control" type="text" name="uphone">#}
+{#					</div>#}
+{#				</div>#}
+{#				<div id="" class="form-line">#}
+{#					<p>密码</p>#}
+{#					<div id="" class="">#}
+{#						<input class="form-control" type="password" name="upwd" placeholder="请输入6-20位的数字字符" maxlength="20">#}
+{#					</div>#}
+{#				</div>#}
+
+                {% for field in form %}
+                    <div id="" class="form-line">
+                    <p>{{ field.label }}</p>
+                    <div>{{ field }}</div>
+                    </div>
+                {% endfor %}
+
+				<div id="" class="form-line">
+					<p></p>
+					<div id="" class="">
+						<p class="forget-pwd">
+							<a href="">忘记密码</a>
+							<a href="">快捷登录</a>
+						</p>
+						<input type="checkbox" name="isSave" class="isSave" id="isSave"><label for="isSave">记住密码</label>
+					</div>
+				</div>
+				<div id="" class="form-line">
+					<p></p>
+					<div id="" class="">
+						<input class="loginBtn btn" type="submit" value="登录" id="btnLogin"><input class="registBtn btn" type="button" value="会员注册" id="btnRegister">
+					</div>
+				</div>
+			</form>
+            {% endblock %}
+			<div id="" class="clear" style="clear:both;">
+
+			</div>
+		</div>
+
+	</div>
+ </body>
+</html>
+

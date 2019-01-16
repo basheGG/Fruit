@@ -1,0 +1,92 @@
+{% extends "login.html" %}
+
+{% block h2 %}
+    会员注册
+{% endblock %}
+
+{% block anchor %}
+    <a href="{% url 'login' %}">会员登录></a>
+{% endblock %}
+
+{% block form %}
+    <form action="xxx" method="post">
+{#    1.手机号#}
+        {% csrf_token %}
+        <div id="" class="form-line">
+            <p>手机号</p>
+            <div id="" class="">
+                <input class="form-control" type="text" name="uphone">
+            </div>
+        </div>
+{#    2.密码#}
+        <div id="" class="form-line">
+            <p>密码</p>
+            <div id="" class="">
+                <input class="form-control" type="password" name="upwd">
+            </div>
+        </div>
+{#    3.确认密码#}
+        <div id="" class="form-line">
+            <p>确认密码</p>
+            <div id="" class="">
+                <input class="form-control" type="password" name="cpwd">
+            </div>
+        </div>
+{#    4.用户名#}
+        <div id="" class="form-line">
+            <p>用户名</p>
+            <div id="" class="">
+                <input class="form-control" type="text" name="uname">
+            </div>
+        </div>
+
+{#    5.邮箱#}
+        <div id="" class="form-line">
+            <p>邮箱</p>
+            <div id="" class="">
+                <input class="form-control" type="email" name="uemail">
+            </div>
+        </div>
+{#    6.按钮行#}
+    <div id="" class="form-line">
+        <p></p>
+        <div id="" class="">
+            <input class="loginBtn btn" type="submit" value="注册"><input class="registBtn btn" type="button" value="会员登录">
+        </div>
+    </div>
+    </form>
+{% endblock %}
+
+{% block style %}
+    <style>
+        #regist>form{
+            margin-top:20px;
+        }
+    </style>
+{% endblock %}
+
+{% block js %}
+    <script>
+    $(function () {
+        $("#btnLogin").click(function () {
+            location.href="{% url 'login' %}";
+        });
+    });
+
+    $("#formReg").submit(function () {
+        return false;
+    });
+
+
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
